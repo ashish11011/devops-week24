@@ -1,9 +1,9 @@
 name: Deployment to staging
 on:
   push:
-    branhc: [ "main" ]
+    branches: [ "main" ]
   pull_request:
-    branch: [ "main" ]
+    branches: [ "main" ]
 
 jobs:
   redeploy_staging:
@@ -12,11 +12,12 @@ jobs:
     
     steps:
       - name: SSH into server
-      - run: |
-          echo ${{ secrets.SSH_PRIVATE_KEY }} &> secret_key
-          ssh -i secret_key ubuntu@15.206.67.99
-          cd ~/devops-week24
-          git checkout main
-          git pull origin main
-          npm install
-          pm2 restart 1
+        run: |
+          echo ${{ secrets.SSH_PRIVATE_KEY }} > secret_key
+          ssh -i secret_key ubuntu@15.206.67.99 << 'EOF'
+            cd ~/devops-week24
+            git checkout main
+            git pull origin main
+            npm install
+            pm2 restart 1
+          EOF
