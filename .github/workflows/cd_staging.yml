@@ -8,8 +8,8 @@ on:
       - "main"
 
 jobs:
-  runs-on: ubuntu-latest
   redeploy_staging:
+    runs-on: ubuntu-latest
     name: Deploy to staging jobs
     
     steps:
