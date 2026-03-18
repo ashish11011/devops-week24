@@ -3,21 +3,6 @@ const app = express();
 
 const USERS_DATA = [
   {
-    userName: "Rahul",
-    age: 42,
-    email: "Xm1j9@example.com",
-  },
-  {
-    userName: "Vishal",
-    age: 42,
-    email: "Xm1j9@example.com",
-  },
-  {
-    userName: "Aman",
-    age: 42,
-    email: "Xm1j9@example.com",
-  },
-  {
     userName: "Aman",
     age: 42,
     email: "Xm1j9@example.com",
