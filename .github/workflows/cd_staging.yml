@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: SSH into server
         run: |
-          echo ${{ secrets.SSH_PRIVATE_KEY }} > secret_key
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > secret_key
           ssh -i secret_key ubuntu@15.206.67.99 << 'EOF'
             cd ~/devops-week24
             git checkout main
