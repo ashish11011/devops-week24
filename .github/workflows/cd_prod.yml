@@ -1,0 +1,22 @@
+name: Deployment to staging
+on:
+  push:
+    branches: [ "production" ]
+
+jobs:
+  redeploy_staging:
+    runs-on: ubuntu-latest
+    name: Deploy to staging jobs
+    
+    steps:
+      - name: SSH into server
+        run: |
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > secret_key
+          chmod 700 secret_key
+          ssh -o StrictHostKeyChecking=no -i secret_key ubuntu@15.206.67.99 << 'EOF'
+            cd ~/devops-week24
+            git checkout production
+            git pull origin production
+            npm install
+            pm2 restart 1
+          EOF
