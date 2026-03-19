@@ -7,6 +7,21 @@ const USERS_DATA = [
     age: 42,
     email: "Xm1j9@example.com",
   },
+  {
+    userName: "Aman",
+    age: 42,
+    email: "Xm1j9@example.com",
+  },
+  {
+    userName: "Aman",
+    age: 42,
+    email: "Xm1j9@example.com",
+  },
+  {
+    userName: "Aman",
+    age: 42,
+    email: "Xm1j9@example.com",
+  },
 ];
 
 app.get("/", (req, res) => {
